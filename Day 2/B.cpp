@@ -1,36 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main()
+
+int main() 
 {
-    int t;
-    cin>>t;
-    while (t--)
+    int t; 
+    cin >> t;
+    while (t--) 
     {
-        int n,x,y;
-        cin>>n>>x>>y;
-        if(n%2==0)
+        int h, x, y;
+        cin >> h >> x >> y;
+        int x2 = 0;
+        int w = 0;  
+        for (int i = 1; i <= h; i++) 
         {
-            if(n*x>=(n/2)*y)
+            x2 += x;
+            if (x2 >= h) 
             {
-                cout<<n*x<<endl;
-            }
-            else
-            {
-                cout<<(n/2)*y<<endl;
+                w = i; 
+                break;
             }
         }
-        else
+        int wo = 0; 
+        if (h > y) 
         {
-            int nn=n-1;
-            if(nn*x>=(nn/2)*y)
+            int y2 = h - y;
+            for (int i = 1; i <= h; i++) 
             {
-                cout<<(nn*x)+x<<endl;
+                if (y2 <= x * i) 
+                {
+                    wo = i + 1;
+                    break;
+                }
             }
-            else
-            {
-                cout<<((nn/2)*y)+x<<endl;
-            }
+        } 
+        else 
+        {
+            wo = 1;
         }
+        cout << min(w, wo) << endl;
     }
     return 0;
 }

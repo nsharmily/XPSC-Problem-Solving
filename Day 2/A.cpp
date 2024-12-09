@@ -1,20 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main()
+
+int main() 
 {
-    int x,n,m;
-    cin>>x>>n>>m;
-    if(x>n || x==n)
+    int t;
+    cin>>t;
+    while (t--) 
     {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        if(n-x<=m)
+        int n,m;
+        cin>>n>>m;
+        if (n-1>=m) 
         {
             cout<<"YES"<<endl;
-        }
-        else
+        } 
+       else 
         {
             cout<<"NO"<<endl;
         }

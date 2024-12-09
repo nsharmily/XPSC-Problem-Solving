@@ -1,38 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main()
+
+int main() 
 {
-    int t;
-    cin>>t;
-    while (t--)
+    int t; 
+    cin >> t;
+    while (t--) 
     {
-        int n,k,l;
-        cin>>n>>k>>l;
-        vector<int> song;
-        for(int i=0; i<n; i++)
+        int n;
+        cin >> n;
+        vector<int> a(n), b(n); 
+        for (int i = 0; i < n; i++) 
         {
-            int a,b;
-            cin>>a>>b;
-            if(l==b)
+            cin >> a[i];
+        }
+        for (int i = 0; i < n; i++) 
+        {
+            cin >> b[i];
+        }
+        
+        int count = 0; 
+        for (int i = 0; i < n; i++) 
+        {
+            if (a[i] <= 2 * b[i] && b[i] <= 2 * a[i]) 
             {
-                song.push_back(a);
+                count++;
             }
         }
-        if(song.size()<k) 
-        {
-            cout<<-1<<endl;
-        }
-        else
-        {
-            sort(song.begin(), song.end());
-            reverse(song.begin(), song.end());
-            int length=0;
-            for (int i=0; i<k; i++)
-            {
-                length+=song[i];
-            }
-            cout<<length<<endl;
-        }
+        cout << count << endl;
     }
     return 0;
 }
