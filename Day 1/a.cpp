@@ -3,15 +3,8 @@ using namespace std;
 
 int main() 
 {
-    int x;
-    cin >> x; 
-    if (x >= 10) 
-    {
-        cout << "YES" << endl; 
-    } 
-    else 
-    {
-        cout << "NO" << endl; 
-    }
+	int n, k;
+    cin >> n >> k;
+    cout << (n - k) * 10000 << endl; 
     return 0;
 }

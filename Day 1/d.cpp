@@ -1,29 +1,30 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() 
 {
     int t;
-    cin >> t; 
+    cin >> t;
+    string p[6] = {"RGB", "RBG", "GRB", "GBR", "BRG", "BGR"};
     while (t--) 
     {
-        int a1, a2, a4, a5;
-        cin >> a1 >> a2 >> a4 >> a5;
-        int case1 = a4 - a2, case2 = a5 - a4, case3 = a1 + a2; 
-        int array[] = {case1, case2, case3};
-        int maximum = 0;
-        for (int i = 0; i < 3; i++) 
+        int n;
+        string s;
+        cin >> n >> s;
+        int minimum = INT_MAX;
+        for (int i = 0; i < 6; ++i) 
         {
-            int a3 = array[i];
-            int fibonacciness = 0;
-            if (a1 + a2 == a3) ++fibonacciness; 
-            if (a2 + a3 == a4) ++fibonacciness; 
-            if (a3 + a4 == a5) ++fibonacciness;
-            maximum = max(maximum, fibonacciness);
+            int changes = 0;
+            for (int j = 0; j < n; ++j) 
+            {
+                if (s[j] != p[i][j % 3]) 
+                {
+                    changes++;
+                }
+            }
+            minimum = min(minimum, changes);
         }
-        cout << maximum << endl;
+        cout << minimum << endl;
     }
     return 0;
 }

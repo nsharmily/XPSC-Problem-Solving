@@ -1,29 +1,22 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int main() 
 {
-    int test; 
-    cin >> test;
-    while (test--) 
+    int t;
+    cin >> t;  
+    string final = "ADVITIYA";  
+    while (t--) 
     {
-        int n; 
-        cin >> n;
-        string s; 
+        string s;
         cin >> s;
-        string t = ""; 
-        for (int i = 0; i < n; i++) 
-        { 
-            if (s[i] == '0') 
-            {
-                t += '1'; 
-            } 
-            else 
-            {
-                t += '0'; 
-            }
+        int total = 0;
+        for (int i = 0; i < 8; i++) 
+        {
+            int step = (final[i] - s[i] + 26) % 26;
+            total += step;
         }
-        cout << t << endl; 
+        cout << total << endl;
     }
     return 0;
 }
